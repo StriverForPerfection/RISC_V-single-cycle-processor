@@ -4,7 +4,7 @@
 
 RISC-V is an open-source instruction set architecture (ISA) that allows users to design custom processors tailored to their specific needs and targets in PPA. An ISA allows designers to define how a processor behaves and what operations it can and can’t do.
 
-	RISC stands for “Reduced Instruction Set Computing,” meaning that processors built upon the RISC architecture utilize instructions that are simple in the sense that only one operation (ADD, SUB, Shift…) may be performed per instruction. Contrary to RISC, “CISC” stands for “Complex Instruction Set Computing.” This “complex” mainly relates to that each instruction can perform several operations.
+> RISC stands for “Reduced Instruction Set Computing,” meaning that processors built upon the RISC architecture utilize instructions that are simple in the sense that only one operation (ADD, SUB, Shift…) may be performed per instruction. Contrary to RISC, “CISC” stands for “Complex Instruction Set Computing.” This “complex” mainly relates to that each instruction can perform several operations.
 
 RISC’s power resides in that its simplicity results in easier decoding, execution and hardware design, leading to a faster processing speed. In addition, its simplicity, modularity, and extensibility allow RISC based processors to be tailored for an extensive variety of applications.
 
@@ -76,8 +76,9 @@ IF also sends portions of the instruction to the control unit.
 7.	control_unit: Generates control signals based on the operation type to organize and control the data path signal propagation behaviour and ensure the instruction is executed properly.
 
 8.	RISC_V_32_top: Encapsulates all of the other modules and ensures the connections between them are correct and that input and output port lengths are correct.
-
-Test bench and waveforms:
+9. 	Test_RISC_V_32.sv: Module containing the test cases for the processor.
+   
+## Test bench and waveforms:
 
 By monitoring the waveform and results stored at the expected registers, updated values of PC on branch and jump statements as well as newer values stored in memory for store operations, we conclude that the processor is fully operational and works as purported.
 
