@@ -1,4 +1,5 @@
 module MEM(	
+		input clk,
 		input wire EX_branch_flag,	// For B_type operations
 		input wire MEM_write_flag,	// For S_type operations
 		input wire reset,		// To reset data_MEM_block at the beginning
@@ -15,7 +16,7 @@ module MEM(
 
 	assign MEM_ALUout = EX_ALUout;
 
-always_comb begin	// Data memory update logic
+always @ (posedge clk) begin	// Data memory update logic
 
 	if(reset) begin		// This is for the reset or initialization of the data memory.
 

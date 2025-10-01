@@ -29,7 +29,6 @@ assign RegBank_en = (WB_LMD_flag || WB_ALUout_flag); //If neither the EX_ALUout 
 
 always_comb begin
 
-	imm_sel = 1'b0;
 	MEM_write_flag = 1'b0;	//Means mode is set to read from memory when it equals zero.
 	
 	WB_LMD_flag = 1'b0;
@@ -37,7 +36,7 @@ always_comb begin
 
 	case(IF_op)
 
-		I_load_type, I_type, U_ADD_type, U_LOAD_type, S_type, B_type, J_type:	imm_sel = 1'b1;
+		I_load_type, I_type, U_ADD_type, U_LOAD_type, S_type, J_type:	imm_sel = 1'b1;
 		default: imm_sel = 1'b0;
 
 	endcase
@@ -115,7 +114,6 @@ always_comb begin
 			MEM_write_flag = 1'b0;
 			WB_LMD_flag = 1'b0;
 			WB_ALUout_flag = 1'b0;	//Result isn't stored to register on branches.
-			imm_sel = 1'b0;
 
 			case(IF_funct3)
 

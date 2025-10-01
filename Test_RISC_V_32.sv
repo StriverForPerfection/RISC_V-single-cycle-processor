@@ -1,10 +1,11 @@
 `include "RISC_V_32_top.sv"
 
-module test_MIPS;
+module test_RISC;
 
 reg clk, reset;
+reg [31:0] WB_out;
 
-	RISC_top Rocky(.clk(clk), .reset(reset));
+	RISC_top Rocky(.clk(clk), .reset(reset), .WB_out(WB_out));
 
 initial begin
 clk = 1'b0; reset = 1'b1;

@@ -5,7 +5,7 @@
 `include "WB_stage.sv"
 `include "control_unit.sv"
 
-module RISC_top(input clk, reset);
+module RISC_top(input clk, reset, output [31:0] WB_out);
 
 						//// IF stage and port declarations ////
 	wire EX_branch_flag, EX_jump_flag;
@@ -30,7 +30,6 @@ IF Fady(
 );
 						//// ID stage and port declarations ////
 
-	wire [31:0] WB_out;
 	wire RegBank_en;
 
 	wire [31:0] ID_rs2;
@@ -79,6 +78,7 @@ EX Xavier(
 		wire MEM_write_flag;
 
 MEM Mason(
+.clk(clk),
 .EX_branch_flag(EX_branch_flag),
 .MEM_write_flag(MEM_write_flag),
 .reset(reset),
